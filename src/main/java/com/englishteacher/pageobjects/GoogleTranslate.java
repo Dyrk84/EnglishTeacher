@@ -13,10 +13,10 @@ public class GoogleTranslate extends Page {
     private WebElement listenButton;
 
     //TODO: Check if button labels work with Hungarian localization. Fix if does not work.
-    @FindBy(css = "button[aria-label='Listen to source text'][style]")
+    @FindBy(css = "button[aria-label='Forrásszöveg meghallgatása'][style]")
     private WebElement clickToListen;
 
-    @FindBy(css = "button[aria-label='Stop listening'][style]")
+    @FindBy(css = "button[aria-label='Lejátszás leállítása'][style]")
     private WebElement clickToStop;
 
     public GoogleTranslate(WebDriver driver) {
@@ -33,3 +33,19 @@ public class GoogleTranslate extends Page {
         waitUntilElementVisible(clickToListen);
     }
 }
+/*
+    ha magyar a környezet:
+//TODO: Check if button labels work with Hungarian localization. Fix if does not work.
+@FindBy(css = "button[aria-label='Forrásszöveg meghallgatása'][style]")
+private WebElement clickToListen;
+
+@FindBy(css = "button[aria-label='Lejátszás leállítása'][style]")
+private WebElement clickToStop;
+
+        ha angol a környezet:
+//TODO: Check if button labels work with Hungarian localization. Fix if does not work.
+@FindBy(css = "button[aria-label='Listen to source text'][style]")
+private WebElement clickToListen;
+
+@FindBy(css = "button[aria-label='Stop listening'][style]")
+private WebElement clickToStop; */
