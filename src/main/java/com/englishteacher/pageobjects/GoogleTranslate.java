@@ -12,8 +12,12 @@ public class GoogleTranslate extends Page {
     @FindBy(xpath = "(//span[normalize-space()='volume_up']/ancestor::button)[1]")
     private WebElement listenButton;
 
-//    @FindBy(xpath = "(//span[normalize-space()='volume_up']/ancestor::button[@aria-pressed='true'])[1]")
-//    private WebElement listenButtonPressed;
+    //TODO: Check if button labels work with Hungarian localization. Fix if does not work.
+    @FindBy(css = "button[aria-label='Forrásszöveg meghallgatása'][style]")
+    private WebElement clickToListen;
+
+    @FindBy(css = "button[aria-label='Lejátszás leállítása'][style]")
+    private WebElement clickToStop;
 
     public GoogleTranslate(WebDriver driver) {
         super(driver);
@@ -25,7 +29,23 @@ public class GoogleTranslate extends Page {
 
     public void clickListen() {
         click(listenButton);
-        waitForElementAttributeToBe(listenButton, "aria-pressed", "true");
-        waitForElementAttributeToBe(listenButton, "aria-pressed", "false");
+        waitUntilElementVisible(clickToStop);
+        waitUntilElementVisible(clickToListen);
     }
 }
+/*
+    ha magyar a környezet:
+//TODO: Check if button labels work with Hungarian localization. Fix if does not work.
+@FindBy(css = "button[aria-label='Forrásszöveg meghallgatása'][style]")
+private WebElement clickToListen;
+
+@FindBy(css = "button[aria-label='Lejátszás leállítása'][style]")
+private WebElement clickToStop;
+
+        ha angol a környezet:
+//TODO: Check if button labels work with Hungarian localization. Fix if does not work.
+@FindBy(css = "button[aria-label='Listen to source text'][style]")
+private WebElement clickToListen;
+
+@FindBy(css = "button[aria-label='Stop listening'][style]")
+private WebElement clickToStop; */
