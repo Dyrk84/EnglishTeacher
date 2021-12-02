@@ -22,7 +22,11 @@ import static com.englishteacher.utils.TextColors.Colors.RESET;
 
 public class Menu extends DriverProvider {
 
-    static EnglishTeacher et = new EnglishTeacher();
+    static EnglishTeacher et;
+
+    public Menu(EnglishTeacher et) {
+        Menu.et = et;
+    }
 
     public static void welcome() {
         String welcomeText = "Szia! Tanuljunk egy kis angolt!";
@@ -275,7 +279,7 @@ public class Menu extends DriverProvider {
                                 Integer eI = e;
                                 Integer tI = t;
                                 Integer sI = s; //az int primitivet átcastoltam Integeré, hogy azt meg át lehessen váltani Stringé, és így már nem adja össze a három számot, hanem egymás után teszi.
-                                taskPath = taskPath.replaceFirst("\\d\\d\\d/tasks\\d\\.csv$", sI.toString() + tI.toString() + eI.toString() + "/tasks1\\.csv");
+                                taskPath = taskPath.replaceFirst("\\d\\d\\d/tasks\\d\\.csv$", sI.toString() + tI + eI + "/tasks1\\.csv");
                                 haveNewPath = true;
                             }
                         }
@@ -306,7 +310,7 @@ public class Menu extends DriverProvider {
                                 Integer tI = t;
                                 Integer sI = s; //az int primitivet átcastoltam Integeré, hogy azt meg át lehessen váltani Stringé, és így már nem adja össze a három számot, hanem egymás után teszi.
                                 taskPath = taskPath.replaceFirst("Assignments/\\d\\d\\d/tasks\\d\\.csv$",
-                                        "Lessons/lesson" + sI.toString() + tI.toString() + eI.toString() + "\\.csv");
+                                        "Lessons/lesson" + sI + tI + eI + "\\.csv");
                                 haveNewPath = true;
                                 //"src/main/resources/Assignments/001/tasks1.csv"
                                 //"src/main/resources/Lessons/lesson001.csv"
@@ -340,7 +344,7 @@ public class Menu extends DriverProvider {
                                 Integer tI = t;
                                 Integer sI = s; //az int primitivet átcastoltam Integeré, hogy azt meg át lehessen váltani Stringé, és így már nem adja össze a három számot, hanem egymás után teszi.
                                 lessonPath = lessonPath.replaceFirst("Lessons/lesson\\d\\d\\d\\.csv$",
-                                        "Assignments/" + sI.toString() + tI.toString() + eI.toString() + "/tasks1\\.csv");
+                                        "Assignments/" + sI + tI + eI + "/tasks1\\.csv");
                                 haveNewPath = true;
                             }
                         }
@@ -380,7 +384,7 @@ public class Menu extends DriverProvider {
                                 Integer eI = e;
                                 Integer tI = t;
                                 Integer sI = s; //az int primitivet átcastoltam Integeré, hogy azt meg át lehessen váltani Stringé, és így már nem adja össze a három számot, hanem egymás után teszi.
-                                lessonPath = lessonPath.replaceFirst("\\d\\d\\d\\.csv$", sI.toString() + tI.toString() + eI.toString() + "\\.csv");
+                                lessonPath = lessonPath.replaceFirst("\\d\\d\\d\\.csv$", sI.toString() + tI + eI + "\\.csv");
                                 haveNewPath = true;
                             }
                         }

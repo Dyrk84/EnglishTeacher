@@ -40,10 +40,8 @@ public class DriverProvider {
 
     private void initializeDriver() {
         try {
-            driver = getInstance();
             if (driver == null) {
-                System.out.println("driver object is null !!!");
-                throw new AssertionError("driver object is null");
+                driver = getInstance();
             }
         } catch (WebDriverException exception) {
             System.out.println("Unknown error at driver initialization" + exception);
